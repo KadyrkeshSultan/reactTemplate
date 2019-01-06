@@ -1,19 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Nav from './src/Nav/nav';
+import Generate from './src/Generator/generate'
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={{backgroundColor: 'red', width: '100%'}}>
-            <Text>Text for View 1</Text>
+    state = {
+        nameOfApp: "My awesome app"
+    }
+
+
+
+    render() {
+        return (
+        <View style={styles.container}>
+            <Nav nameOfApp={this.state.nameOfApp}/>
+            <Generate/>
         </View>
-        <View style={styles.view2}>
-            <Text>Text for View 2</Text>
-        </View>
-      </View>
-    );
-  }
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -23,8 +27,5 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'flex-start',
     marginTop: 20
-  },
-  view2:{
-      backgroundColor: 'blue'
   }
 });
